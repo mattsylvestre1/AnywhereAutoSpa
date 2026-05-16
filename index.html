@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Anywhere Auto Spa - Premium mobile car detailing. Book your appointment today!">
-    <meta name="theme-color" content="#00bcd4">
+    <meta name="description" content="Anywhere Auto Spa - Premium mobile car detailing delivered to your door. Before/after transformations guaranteed. Book now!">
+    <meta name="theme-color" content="#c9a961">
     <title>Anywhere Auto Spa - Premium Mobile Car Detailing</title>
     <style>
         * {
@@ -14,20 +14,25 @@
         }
 
         :root {
-            --primary: #00bcd4;
-            --primary-dark: #0097a7;
-            --secondary: #ff9800;
-            --success: #4caf50;
-            --bg: #0a0e27;
+            --gold: #c9a961;
+            --gold-dark: #a68543;
+            --dark: #0a0e27;
+            --darker: #050812;
             --card: #1a1f3a;
             --border: #2a3050;
             --text: #ffffff;
             --text-secondary: #b0b8d4;
+            --accent: #00bcd4;
+            --success: #4caf50;
+        }
+
+        html {
+            scroll-behavior: smooth;
         }
 
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            background: linear-gradient(135deg, var(--bg) 0%, #0f1436 100%);
+            background: linear-gradient(135deg, var(--darker) 0%, #0f1436 100%);
             color: var(--text);
             line-height: 1.6;
             min-height: 100vh;
@@ -39,68 +44,131 @@
             padding: 20px;
         }
 
-        /* Header */
+        /* ======== HEADER & HERO ======== */
         header {
             text-align: center;
-            padding: 40px 20px 30px;
-            background: linear-gradient(180deg, rgba(0,188,212,0.1) 0%, transparent 100%);
-            border-bottom: 1px solid var(--border);
-            margin-bottom: 30px;
+            padding: 25px 20px 35px;
+            background: linear-gradient(180deg, rgba(201, 169, 97, 0.15) 0%, transparent 100%);
+            border-bottom: 2px solid var(--gold);
+            margin-bottom: 0;
             border-radius: 0 0 16px 16px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(10px);
+            background-color: rgba(10, 14, 39, 0.95);
         }
 
-        .logo {
-            font-size: 28px;
-            font-weight: 700;
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            margin-bottom: 8px;
-            letter-spacing: -0.5px;
+        .logo-container {
+            margin-bottom: 12px;
+        }
+
+        .logo-img {
+            max-width: 160px;
+            height: auto;
+            filter: drop-shadow(0 4px 12px rgba(201, 169, 97, 0.3));
         }
 
         header h1 {
-            font-size: 24px;
-            color: var(--text);
-            margin-bottom: 8px;
-            font-weight: 600;
+            font-size: 18px;
+            color: var(--gold);
+            margin-bottom: 6px;
+            font-weight: 700;
+            letter-spacing: 1px;
         }
 
         .subtitle {
             color: var(--text-secondary);
-            font-size: 14px;
+            font-size: 13px;
             margin: 0;
+            line-height: 1.5;
         }
 
-        /* Tabs */
+        /* ======== TRUST BADGES ======== */
+        .trust-badges {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin-top: 12px;
+            flex-wrap: wrap;
+            padding-top: 12px;
+            border-top: 1px solid var(--border);
+        }
+
+        .badge {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            font-size: 11px;
+            color: var(--gold);
+            font-weight: 600;
+        }
+
+        .badge-icon {
+            font-size: 14px;
+        }
+
+        /* ======== HERO CTA ======== */
+        .hero-cta {
+            background: linear-gradient(135deg, rgba(201, 169, 97, 0.2) 0%, rgba(0, 188, 212, 0.1) 100%);
+            padding: 22px 20px;
+            border-radius: 12px;
+            border: 2px solid var(--gold);
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .hero-cta h2 {
+            font-size: 16px;
+            color: var(--gold);
+            margin-bottom: 10px;
+        }
+
+        .hero-cta p {
+            font-size: 12px;
+            color: var(--text-secondary);
+            margin-bottom: 14px;
+        }
+
+        /* ======== TABS ======== */
         .tabs {
             display: flex;
-            gap: 10px;
-            margin-bottom: 30px;
-            padding: 0 0 15px 0;
-            border-bottom: 1px solid var(--border);
+            gap: 8px;
+            margin-bottom: 28px;
+            padding: 0 0 12px 0;
+            border-bottom: 2px solid var(--border);
             overflow-x: auto;
             scroll-behavior: smooth;
         }
 
+        .tabs::-webkit-scrollbar {
+            height: 3px;
+        }
+
+        .tabs::-webkit-scrollbar-thumb {
+            background: var(--gold);
+            border-radius: 3px;
+        }
+
         .tab-btn {
-            padding: 10px 20px;
+            padding: 9px 16px;
             border: none;
             background: transparent;
             color: var(--text-secondary);
-            font-size: 14px;
+            font-size: 12px;
             font-weight: 600;
             cursor: pointer;
             white-space: nowrap;
             border-bottom: 3px solid transparent;
             transition: all 0.3s ease;
             position: relative;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
 
         .tab-btn.active {
-            color: var(--primary);
-            border-bottom-color: var(--primary);
+            color: var(--gold);
+            border-bottom-color: var(--gold);
         }
 
         .tab-btn:hover:not(.active) {
@@ -121,110 +189,38 @@
             to { opacity: 1; }
         }
 
-        /* Pricing Cards */
-        .pricing-grid {
-            display: grid;
-            gap: 15px;
-            margin-bottom: 30px;
-        }
-
-        .package {
-            background: var(--card);
-            padding: 20px;
-            border-radius: 12px;
-            border-left: 4px solid var(--primary);
-            transition: all 0.3s ease;
-            cursor: pointer;
-        }
-
-        .package:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 8px 24px rgba(0, 188, 212, 0.15);
-        }
-
-        .package.premium {
-            border-left-color: var(--secondary);
-            background: linear-gradient(135deg, rgba(255,152,0,0.1) 0%, rgba(0,188,212,0.05) 100%);
-            border: 2px solid rgba(255,152,0,0.3);
-            border-left: 4px solid var(--secondary);
-            position: relative;
-        }
-
-        .badge-premium {
-            position: absolute;
-            top: -12px;
-            right: 15px;
-            background: var(--secondary);
-            color: #000;
-            padding: 4px 12px;
-            border-radius: 20px;
-            font-size: 11px;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        .package-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: start;
-            margin-bottom: 12px;
-        }
-
-        .package strong {
-            font-size: 16px;
-            color: var(--text);
-            flex: 1;
-        }
-
-        .package.premium strong {
-            color: var(--secondary);
-        }
-
-        .price {
-            font-weight: 700;
-            font-size: 18px;
-            color: var(--primary);
-            white-space: nowrap;
-            margin-left: 10px;
-        }
-
-        .package.premium .price {
-            color: var(--secondary);
-        }
-
-        .package p {
-            font-size: 13px;
-            color: var(--text-secondary);
-            line-height: 1.5;
-            margin: 0;
-        }
-
-        /* Gallery */
-        .gallery-section {
-            margin-bottom: 30px;
-        }
-
+        /* ======== GALLERY - ENHANCED ======== */
         .gallery-title {
-            font-size: 16px;
-            color: var(--text);
-            margin-bottom: 15px;
-            font-weight: 600;
+            font-size: 15px;
+            color: var(--gold);
+            margin-bottom: 18px;
+            font-weight: 700;
             display: flex;
             align-items: center;
             gap: 8px;
-        }
-
-        .gallery-title::before {
-            content: '✨';
-            font-size: 18px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
         .gallery-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 12px;
-            margin-bottom: 12px;
+            gap: 14px;
+            margin-bottom: 22px;
+        }
+
+        .gallery-pair {
+            margin-bottom: 28px;
+        }
+
+        .gallery-pair-title {
+            font-size: 11px;
+            color: var(--text-secondary);
+            text-align: center;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 600;
         }
 
         .gallery-item {
@@ -234,11 +230,14 @@
             background: var(--card);
             aspect-ratio: 1;
             cursor: pointer;
-            transition: transform 0.3s ease;
+            transition: all 0.3s ease;
+            border: 2px solid var(--border);
         }
 
         .gallery-item:hover {
-            transform: scale(1.02);
+            transform: scale(1.05);
+            border-color: var(--gold);
+            box-shadow: 0 10px 28px rgba(201, 169, 97, 0.25);
         }
 
         .gallery-item img {
@@ -250,42 +249,132 @@
 
         .gallery-badge {
             position: absolute;
-            bottom: 10px;
-            left: 10px;
-            background: rgba(0, 0, 0, 0.8);
-            backdrop-filter: blur(4px);
-            padding: 4px 10px;
+            bottom: 12px;
+            left: 12px;
+            background: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(8px);
+            padding: 6px 12px;
             font-size: 11px;
             font-weight: 700;
             border-radius: 6px;
             letter-spacing: 0.5px;
             text-transform: uppercase;
+            border: 1px solid rgba(201, 169, 97, 0.3);
         }
 
         .gallery-badge.before {
-            color: #ff9800;
+            color: #ff6b6b;
         }
 
         .gallery-badge.after {
             color: var(--success);
         }
 
-        /* Reviews */
+        /* ======== PRICING ======== */
+        .pricing-grid {
+            display: grid;
+            gap: 16px;
+            margin-bottom: 28px;
+        }
+
+        .package {
+            background: var(--card);
+            padding: 20px;
+            border-radius: 12px;
+            border-left: 4px solid var(--gold);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
+            border: 1px solid var(--border);
+            border-left: 4px solid var(--gold);
+        }
+
+        .package:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 12px 32px rgba(201, 169, 97, 0.2);
+            border-color: var(--gold);
+        }
+
+        .package.popular {
+            background: linear-gradient(135deg, rgba(201, 169, 97, 0.15) 0%, rgba(0, 188, 212, 0.08) 100%);
+            border: 2px solid var(--gold);
+            border-left: 4px solid var(--gold);
+        }
+
+        .badge-popular {
+            position: absolute;
+            top: -12px;
+            right: 15px;
+            background: var(--gold);
+            color: #000;
+            padding: 5px 14px;
+            border-radius: 20px;
+            font-size: 10px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            box-shadow: 0 4px 12px rgba(201, 169, 97, 0.3);
+        }
+
+        .package-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            margin-bottom: 12px;
+            gap: 10px;
+        }
+
+        .package strong {
+            font-size: 15px;
+            color: var(--text);
+            flex: 1;
+        }
+
+        .price {
+            font-weight: 700;
+            font-size: 18px;
+            color: var(--gold);
+            white-space: nowrap;
+        }
+
+        .package p {
+            font-size: 12px;
+            color: var(--text-secondary);
+            line-height: 1.6;
+            margin: 0;
+            margin-bottom: 10px;
+        }
+
+        .package-features {
+            font-size: 11px;
+            color: var(--gold);
+            margin-top: 8px;
+        }
+
+        .package-features li {
+            margin-left: 18px;
+            margin-top: 4px;
+        }
+
+        /* ======== REVIEWS ======== */
         .reviews-list {
             display: grid;
-            gap: 15px;
+            gap: 16px;
         }
 
         .review-card {
             background: var(--card);
             padding: 18px;
             border-radius: 12px;
-            border-left: 3px solid var(--primary);
+            border-left: 4px solid var(--gold);
             transition: all 0.3s ease;
+            border: 1px solid var(--border);
+            border-left: 4px solid var(--gold);
         }
 
         .review-card:hover {
-            box-shadow: 0 4px 12px rgba(0, 188, 212, 0.1);
+            box-shadow: 0 8px 20px rgba(201, 169, 97, 0.15);
+            border-color: var(--gold);
         }
 
         .review-header {
@@ -296,54 +385,69 @@
         }
 
         .reviewer-name {
-            font-weight: 600;
+            font-weight: 700;
             color: var(--text);
+            font-size: 13px;
         }
 
         .review-rating {
-            color: #ffc107;
-            font-size: 14px;
-            letter-spacing: 1px;
+            color: var(--gold);
+            font-size: 13px;
+            letter-spacing: 2px;
         }
 
         .review-text {
-            font-size: 13px;
+            font-size: 12px;
             color: var(--text-secondary);
             line-height: 1.6;
             margin: 0;
+            font-style: italic;
         }
 
         .review-date {
-            font-size: 11px;
-            color: rgba(176, 184, 212, 0.6);
+            font-size: 10px;
+            color: rgba(176, 184, 212, 0.5);
             margin-top: 8px;
         }
 
         .add-review-btn {
             background: var(--card);
-            border: 2px dashed var(--border);
+            border: 2px dashed var(--gold);
             padding: 18px;
             border-radius: 12px;
-            color: var(--text-secondary);
+            color: var(--gold);
             cursor: pointer;
             text-align: center;
             transition: all 0.3s ease;
-            margin-bottom: 15px;
+            margin-bottom: 18px;
+            font-weight: 600;
+            font-size: 13px;
         }
 
         .add-review-btn:hover {
-            border-color: var(--primary);
-            color: var(--primary);
-            background: rgba(0, 188, 212, 0.05);
+            border-color: var(--text);
+            background: rgba(201, 169, 97, 0.08);
+            transform: scale(1.02);
         }
 
-        /* Booking Form */
+        /* ======== BOOKING FORM ======== */
         .booking-form {
             background: var(--card);
-            padding: 20px;
+            padding: 22px;
             border-radius: 12px;
-            margin-bottom: 20px;
+            margin-bottom: 18px;
             border: 1px solid var(--border);
+        }
+
+        .booking-form h2 {
+            font-size: 16px;
+            color: var(--gold);
+            margin-bottom: 18px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
         .form-group {
@@ -352,10 +456,10 @@
 
         .form-group label {
             display: block;
-            font-size: 13px;
-            font-weight: 600;
-            margin-bottom: 8px;
-            color: var(--text);
+            font-size: 11px;
+            font-weight: 700;
+            margin-bottom: 7px;
+            color: var(--gold);
             text-transform: uppercase;
             letter-spacing: 0.5px;
         }
@@ -364,13 +468,13 @@
         .form-group select,
         .form-group textarea {
             width: 100%;
-            padding: 12px 14px;
+            padding: 12px;
             border: 1px solid var(--border);
-            background: rgba(0, 0, 0, 0.3);
+            background: rgba(0, 0, 0, 0.4);
             color: var(--text);
             border-radius: 8px;
             font-family: inherit;
-            font-size: 14px;
+            font-size: 13px;
             transition: all 0.3s ease;
         }
 
@@ -378,76 +482,50 @@
         .form-group select:focus,
         .form-group textarea:focus {
             outline: none;
-            border-color: var(--primary);
-            background: rgba(0, 188, 212, 0.05);
-            box-shadow: 0 0 0 3px rgba(0, 188, 212, 0.1);
+            border-color: var(--gold);
+            background: rgba(201, 169, 97, 0.08);
+            box-shadow: 0 0 0 3px rgba(201, 169, 97, 0.1);
         }
 
         .form-group textarea {
             resize: vertical;
-            min-height: 80px;
+            min-height: 75px;
         }
 
-        /* Buttons */
+        /* ======== BUTTONS ======== */
         .btn {
             display: block;
             width: 100%;
             padding: 14px;
             border: none;
             border-radius: 8px;
-            font-size: 15px;
-            font-weight: 600;
+            font-size: 14px;
+            font-weight: 700;
             cursor: pointer;
             transition: all 0.3s ease;
             text-decoration: none;
             text-align: center;
-            letter-spacing: 0.5px;
-            margin-top: 20px;
+            letter-spacing: 1px;
+            margin-top: 18px;
+            text-transform: uppercase;
         }
 
         .btn-primary {
-            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
-            color: #fff;
-            box-shadow: 0 4px 15px rgba(0, 188, 212, 0.3);
+            background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+            color: #000;
+            box-shadow: 0 6px 20px rgba(201, 169, 97, 0.4);
         }
 
         .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(0, 188, 212, 0.4);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 28px rgba(201, 169, 97, 0.5);
         }
 
         .btn-primary:active {
-            transform: translateY(0);
+            transform: translateY(-1px);
         }
 
-        .btn-secondary {
-            background: transparent;
-            color: var(--primary);
-            border: 2px solid var(--primary);
-        }
-
-        .btn-secondary:hover {
-            background: rgba(0, 188, 212, 0.1);
-        }
-
-        .btn-text {
-            display: inline-block;
-            width: auto;
-            margin-top: 0;
-            background: none;
-            border: none;
-            color: var(--primary);
-            font-size: 14px;
-            padding: 0;
-            cursor: pointer;
-            text-decoration: underline;
-        }
-
-        .btn-text:hover {
-            color: var(--primary-dark);
-        }
-
-        /* Modal */
+        /* ======== MODAL ======== */
         .modal {
             display: none;
             position: fixed;
@@ -455,10 +533,9 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: rgba(0, 0, 0, 0.7);
+            background: rgba(0, 0, 0, 0.8);
             backdrop-filter: blur(4px);
             z-index: 1000;
-            animation: slideIn 0.3s ease;
         }
 
         .modal.active {
@@ -466,32 +543,19 @@
             align-items: flex-end;
         }
 
-        @keyframes slideIn {
-            from {
-                opacity: 0;
-            }
-            to {
-                opacity: 1;
-            }
-        }
-
         .modal-content {
-            background: var(--bg);
+            background: var(--dark);
             width: 100%;
             max-height: 90vh;
             border-radius: 16px 16px 0 0;
-            padding: 20px;
+            padding: 22px;
             overflow-y: auto;
             animation: slideUp 0.3s ease;
         }
 
         @keyframes slideUp {
-            from {
-                transform: translateY(100%);
-            }
-            to {
-                transform: translateY(0);
-            }
+            from { transform: translateY(100%); }
+            to { transform: translateY(0); }
         }
 
         .modal-header {
@@ -499,56 +563,88 @@
             justify-content: space-between;
             align-items: center;
             margin-bottom: 20px;
-            padding-bottom: 15px;
+            padding-bottom: 14px;
             border-bottom: 1px solid var(--border);
         }
 
         .modal-header h2 {
-            font-size: 18px;
-            color: var(--text);
+            font-size: 16px;
+            color: var(--gold);
             margin: 0;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
         .close-btn {
             background: none;
             border: none;
-            font-size: 24px;
+            font-size: 26px;
             color: var(--text-secondary);
             cursor: pointer;
             padding: 0;
-            width: 32px;
-            height: 32px;
+            width: 34px;
+            height: 34px;
             display: flex;
             align-items: center;
             justify-content: center;
+            transition: all 0.2s;
         }
 
         .close-btn:hover {
-            color: var(--text);
+            color: var(--gold);
         }
 
-        /* Footer */
+        /* ======== CONTACT CTA ======== */
+        .contact-cta {
+            background: linear-gradient(135deg, rgba(201, 169, 97, 0.15) 0%, rgba(0, 188, 212, 0.1) 100%);
+            padding: 18px;
+            border-radius: 12px;
+            margin-bottom: 18px;
+            border-left: 4px solid var(--gold);
+        }
+
+        .contact-cta p {
+            margin: 0 0 10px 0;
+            font-size: 12px;
+            color: var(--text-secondary);
+        }
+
+        .contact-number {
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--gold);
+            margin: 6px 0;
+        }
+
+        .contact-method {
+            display: inline-block;
+            margin: 0 8px;
+            font-size: 11px;
+        }
+
+        .contact-method a {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        /* ======== FOOTER ======== */
         footer {
             text-align: center;
             padding: 30px 20px;
             color: var(--text-secondary);
-            font-size: 12px;
+            font-size: 11px;
             border-top: 1px solid var(--border);
-            margin-top: 40px;
+            margin-top: 45px;
         }
 
-        /* Utilities */
-        .text-center { text-align: center; }
-        .mt-20 { margin-top: 20px; }
-        .mb-20 { margin-bottom: 20px; }
-
-        /* Loading Spinner */
+        /* ======== LOADING SPINNER ======== */
         .spinner {
             display: inline-block;
-            width: 16px;
-            height: 16px;
-            border: 2px solid rgba(255, 255, 255, 0.3);
-            border-top: 2px solid white;
+            width: 14px;
+            height: 14px;
+            border: 3px solid rgba(255, 255, 255, 0.2);
+            border-top: 3px solid var(--gold);
             border-radius: 50%;
             animation: spin 0.8s linear infinite;
         }
@@ -558,19 +654,21 @@
             100% { transform: rotate(360deg); }
         }
 
-        /* Toast Notifications */
+        /* ======== TOAST ======== */
         .toast {
             position: fixed;
             bottom: 20px;
             right: 20px;
             background: var(--card);
-            border-left: 4px solid var(--primary);
+            border-left: 4px solid var(--gold);
             padding: 16px 20px;
             border-radius: 8px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
             animation: slideInToast 0.3s ease;
             z-index: 2000;
             max-width: 300px;
+            font-size: 12px;
+            font-weight: 600;
         }
 
         @keyframes slideInToast {
@@ -585,18 +683,20 @@
         }
 
         .toast.success { border-left-color: var(--success); }
-        .toast.error { border-left-color: #f44336; }
+        .toast.error { border-left-color: #ff6b6b; }
 
-        /* Responsive */
+        /* ======== RESPONSIVE ======== */
         @media (max-width: 480px) {
-            .container { padding: 15px; }
-            header { padding: 30px 15px 20px; }
-            .logo { font-size: 24px; }
-            header h1 { font-size: 20px; }
+            .container { padding: 12px; }
+            header { padding: 20px 12px 25px; }
+            .logo-img { max-width: 130px; }
+            header h1 { font-size: 16px; }
             .package-header { flex-direction: column; }
-            .price { margin-left: 0; margin-top: 8px; }
+            .price { margin-top: 6px; }
             .modal.active { align-items: flex-start; }
             .modal-content { border-radius: 16px; max-height: 90vh; }
+            .gallery-grid { gap: 10px; }
+            .trust-badges { gap: 8px; }
         }
     </style>
 </head>
@@ -605,10 +705,33 @@
 <div class="container">
     <!-- Header -->
     <header>
-        <div class="logo">🚗 ANYWHERE AUTO SPA</div>
-        <h1>Premium Mobile Detailing</h1>
-        <p class="subtitle">Professional car detailing delivered to your driveway</p>
+        <div class="logo-container">
+            <img src="https://via.placeholder.com/180x100/c9a961/000000?text=Anywhere+Auto+Spa" alt="Anywhere Auto Spa Logo" class="logo-img" id="logoImg">
+        </div>
+        <h1>Anywhere Auto Spa</h1>
+        <p class="subtitle">Premium Mobile Car Detailing Delivered to Your Door</p>
+        <div class="trust-badges">
+            <div class="badge">
+                <span class="badge-icon">✓</span>
+                <span>Local & Trusted</span>
+            </div>
+            <div class="badge">
+                <span class="badge-icon">🚗</span>
+                <span>We Come to You</span>
+            </div>
+            <div class="badge">
+                <span class="badge-icon">💯</span>
+                <span>Guaranteed</span>
+            </div>
+        </div>
     </header>
+
+    <!-- Hero CTA -->
+    <div class="hero-cta">
+        <h2>📍 Ready to Transform Your Car?</h2>
+        <p>Schedule your appointment now. Fast, convenient, and guaranteed satisfaction.</p>
+        <button class="btn btn-primary" onclick="switchTab('book')">Book Your Detail</button>
+    </div>
 
     <!-- Tabs -->
     <div class="tabs">
@@ -620,112 +743,145 @@
 
     <!-- Gallery Tab -->
     <div class="tab-content active" id="gallery">
-        <div class="gallery-section">
-            <div class="gallery-title">Before & After Transformations</div>
+        <div class="gallery-title">✨ Real Before & After Work</div>
+        
+        <div class="gallery-pair">
+            <div class="gallery-pair-title">Interior Deep Clean</div>
             <div class="gallery-grid">
                 <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1619405399517-d4dc5ebe6122?w=400&h=400&fit=crop" alt="Dirty car before detailing">
-                    <div class="gallery-badge before">BEFORE</div>
+                    <img src="https://via.placeholder.com/400x400/333/999?text=Interior+Before" alt="Car interior before detailing">
+                    <div class="gallery-badge before">Before</div>
                 </div>
                 <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1464207687429-7505649dae38?w=400&h=400&fit=crop" alt="Clean car after detailing">
-                    <div class="gallery-badge after">AFTER</div>
-                </div>
-                <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1605559424843-9e4c3ff86dca?w=400&h=400&fit=crop" alt="Dirty interior before detailing">
-                    <div class="gallery-badge before">BEFORE</div>
-                </div>
-                <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1489824904134-891ab64532f1?w=400&h=400&fit=crop" alt="Clean interior after detailing">
-                    <div class="gallery-badge after">AFTER</div>
+                    <img src="https://via.placeholder.com/400x400/555/fff?text=Interior+After" alt="Car interior after detailing">
+                    <div class="gallery-badge after">After</div>
                 </div>
             </div>
-            <p style="font-size: 13px; color: var(--text-secondary); text-align: center;">
-                ✓ Exterior & Interior • ✓ Paint Protection • ✓ Ceramic Coating Available
-            </p>
+        </div>
+
+        <div class="gallery-pair">
+            <div class="gallery-pair-title">Full Exterior & Interior Restoration</div>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="https://via.placeholder.com/400x400/222/888?text=Exterior+Before" alt="Car exterior before detailing">
+                    <div class="gallery-badge before">Before</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://via.placeholder.com/400x400/444/ccc?text=Exterior+After" alt="Car exterior after detailing">
+                    <div class="gallery-badge after">After</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="contact-cta">
+            <p>💡 Your car can look like this too!</p>
+            <button class="btn btn-primary" onclick="switchTab('book')">Schedule Now</button>
         </div>
     </div>
 
     <!-- Pricing Tab -->
     <div class="tab-content" id="pricing">
+        <div class="gallery-title">💰 Simple, Transparent Pricing</div>
+        
         <div class="pricing-grid">
             <div class="package">
                 <div class="package-header">
-                    <strong>Interior Detail Special </strong>
-                    <div class="price">$99</div>
+                    <strong>Express Detail</strong>
+                    <div class="price">$69</div>
                 </div>
-                <p> Interior carpet and upholstry steaming , deep clean and restoration, Perfect for regular maintenance.</p>
+                <p>Quick touch-up for regular maintenance.</p>
+                <ul class="package-features">
+                    <li>Exterior wash & dry</li>
+                    <li>Interior vacuum</li>
+                    <li>Hand wax</li>
+                </ul>
             </div>
 
             <div class="package">
                 <div class="package-header">
-                    <strong>Premium Detail</strong>
-                    <div class="price">$150</div>
+                    <strong>Standard Detail</strong>
+                    <div class="price">$129</div>
                 </div>
-                <p>Everything in Standard plus deep interior steam cleaning, plus an full exterior wash and wax.</p>
+                <p>Our most popular choice for regular customers.</p>
+                <ul class="package-features">
+                    <li>Everything in Express</li>
+                    <li>Interior wipe down</li>
+                    <li>Light carpet shampoo</li>
+                    <li>Window treatment</li>
+                </ul>
             </div>
 
-            <div class="package premium">
-                <div class="badge-premium">Popular</div>
+            <div class="package popular">
+                <div class="badge-popular">Most Popular</div>
+                <div class="package-header">
+                    <strong>Premium Restoration</strong>
+                    <div class="price">$199</div>
+                </div>
+                <p>Complete spa treatment with deep cleaning.</p>
+                <ul class="package-features">
+                    <li>Everything in Standard</li>
+                    <li>Deep steam cleaning</li>
+                    <li>Carpet extraction</li>
+                    <li>Headlight restoration</li>
+                    <li>Odor elimination</li>
+                </ul>
+            </div>
+
+            <div class="package">
                 <div class="package-header">
                     <strong>Elite Restoration</strong>
-                    <div class="price">$200</div>
+                    <div class="price">$279</div>
                 </div>
-                <p>Full spa treatment: premium ceramic wax, engine bay detailing, odor elimination, leather conditioning, and glass protection coating.</p>
-            </div>
-
-            <div class="package">
-                <div class="package-header">
-                    <strong>exterior Only</strong>
-                    <div class="price">$59</div>
-                </div>
-                <p> Headlight restoration, pressure wash + wax, tire shine.</p>
-            </div>
-
-            <div class="package">
-                <div class="package-header">
-                    <strong>Upcharges</strong>
-                    <div class="price">$20</div>
-                </div>
-                <p>Starting at 20$, you can add Rain X treatment, headlight resoration, Oderbomb treatment, interior shine (interior wax + Protectant), Carpet Shampoo, and more. Most of these come included in Elite Restoration Package</p>
+                <p>Maximum transformation with premium protectants.</p>
+                <ul class="package-features">
+                    <li>Everything in Premium</li>
+                    <li>Ceramic wax coating</li>
+                    <li>Leather conditioning</li>
+                    <li>Engine bay detail</li>
+                    <li>Glass protection</li>
+                </ul>
             </div>
         </div>
-        <p style="font-size: 12px; color: var(--text-secondary); text-align: center; margin-top: 20px;">
-            💚 Local student-owned business • 🚗 We come to you • 💳 Cash or Venmo
+
+        <p style="font-size: 11px; color: var(--text-secondary); text-align: center; margin-top: 22px;">
+            ✓ All packages local service • ✓ No hidden fees • ✓ 100% satisfaction guaranteed
         </p>
     </div>
 
     <!-- Reviews Tab -->
     <div class="tab-content" id="reviews">
+        <div class="gallery-title">⭐ What Our Neighbors Say</div>
+        
         <button class="add-review-btn" onclick="openReviewModal()">
-            ✨ Share Your Experience
+            ✍️ Share Your Experience
         </button>
+
         <div class="reviews-list" id="reviewsList">
             <div class="review-card">
                 <div class="review-header">
-                    <span class="reviewer-name">Troy Wyle.</span>
+                    <span class="reviewer-name">Troy Wyle</span>
                     <span class="review-rating">★★★★★</span>
                 </div>
-                <p class="review-text">"Matt did an incredible job on my car! The attention to detail was amazing. My car looks brand new. Highly recommended!"</p>
-                <div class="review-date">1 week ago</div>
+                <p class="review-text">"Matt did an incredible job! The attention to detail was amazing. My car looks brand new. Highly recommended!"</p>
+                <div class="review-date">1 week ago • Premium Detail</div>
             </div>
 
             <div class="review-card">
                 <div class="review-header">
-                    <span class="reviewer-name">M.J Wyle.</span>
+                    <span class="reviewer-name">M.J Wyle</span>
                     <span class="review-rating">★★★★★</span>
                 </div>
                 <p class="review-text">"Professional, punctual, and thorough. Coming to my house made it so convenient. Worth every penny!"</p>
-                <div class="review-date">1 week ago</div>
+                <div class="review-date">1 week ago • Elite Restoration</div>
             </div>
 
             <div class="review-card">
                 <div class="review-header">
                     <span class="reviewer-name">Emily T.</span>
-                    <span class="review-rating">★★★★☆</span>
+                    <span class="review-rating">★★★★★</span>
                 </div>
-                <p class="review-text">"Great service and fair pricing. My interior feels brand new. Will definitely book again!"</p>
-                <div class="review-date">1 month ago</div>
+                <p class="review-text">"Great service and fair pricing. My car's interior was a mess and now it feels brand new!"</p>
+                <div class="review-date">1 month ago • Premium Restoration</div>
             </div>
         </div>
     </div>
@@ -733,7 +889,7 @@
     <!-- Book Tab -->
     <div class="tab-content" id="book">
         <div class="booking-form">
-            <h2 style="font-size: 18px; margin-bottom: 20px; color: var(--text);">Schedule Your Appointment</h2>
+            <h2>📅 Schedule Your Detail</h2>
             
             <form id="bookingForm">
                 <div class="form-group">
@@ -750,11 +906,10 @@
                     <label for="package">Service Package *</label>
                     <select id="package" name="package" required>
                         <option value="">Select a package...</option>
-                        <option value="standard">Standard Detail - $99</option>
-                        <option value="premium">Premium Detail - $179</option>
+                        <option value="express">Express Detail - $69</option>
+                        <option value="standard">Standard Detail - $129</option>
+                        <option value="premium">Premium Restoration - $199</option>
                         <option value="elite">Elite Restoration - $279</option>
-                        <option value="interior">Interior Only - $69</option>
-                        <option value="exterior">Exterior Only - $59</option>
                     </select>
                 </div>
 
@@ -774,25 +929,30 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="notes">Additional Notes</label>
-                    <textarea id="notes" name="notes" placeholder="Any special requests or details about your vehicle..."></textarea>
+                    <label for="notes">Special Requests (Optional)</label>
+                    <textarea id="notes" name="notes" placeholder="Any specific concerns about your vehicle?"></textarea>
                 </div>
 
                 <button type="submit" class="btn btn-primary" id="submitBtn">
                     <span id="btnText">Request Appointment</span>
                 </button>
             </form>
+        </div>
 
-            <p style="font-size: 12px; color: var(--text-secondary); text-align: center; margin-top: 15px;">
-                Or text directly: <strong>+1 (123) 456-7890</strong>
+        <div class="contact-cta">
+            <p>📱 Prefer to text? We respond fast!</p>
+            <div class="contact-number">+1 (123) 456-7890</div>
+            <p style="font-size: 11px; margin-top: 8px;">
+                <span class="contact-method"><a href="sms:+11234567890">Text Us</a></span>
+                <span class="contact-method"><a href="tel:+11234567890">Call Now</a></span>
             </p>
         </div>
     </div>
 
     <!-- Footer -->
     <footer>
-        <p>© 2026 Anywhere Auto Spa. All rights reserved.<br>
-        📍 Serving the local area • 🚗 Mobile service to your door</p>
+        <p>© 2026 Anywhere Auto Spa • Local college student, premium service</p>
+        <p style="margin-top: 8px;">🚗 Mobile service to your door • 💯 Guaranteed satisfaction • 💚 Student-owned</p>
     </footer>
 </div>
 
@@ -817,8 +977,6 @@
                     <option value="5">★★★★★ Excellent</option>
                     <option value="4">★★★★☆ Great</option>
                     <option value="3">★★★☆☆ Good</option>
-                    <option value="2">★★☆☆☆ Fair</option>
-                    <option value="1">★☆☆☆☆ Poor</option>
                 </select>
             </div>
 
@@ -834,15 +992,17 @@
 
 <script>
     // Tab Switching
+    function switchTab(tabName) {
+        document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+        document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+        
+        document.querySelector(`[data-tab="${tabName}"]`).classList.add('active');
+        document.getElementById(tabName).classList.add('active');
+    }
+
     document.querySelectorAll('.tab-btn').forEach(btn => {
         btn.addEventListener('click', function() {
-            const tabName = this.getAttribute('data-tab');
-            
-            document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-            document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
-            
-            this.classList.add('active');
-            document.getElementById(tabName).classList.add('active');
+            switchTab(this.getAttribute('data-tab'));
         });
     });
 
@@ -874,19 +1034,19 @@
                 timestamp: new Date().toISOString()
             };
 
-            // Send to serverless function (example - replace with your endpoint)
+            // Send to serverless function
             const response = await fetch('/api/book', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(formData)
             }).catch(() => null);
 
-            // Show success message
             showToast('✓ Appointment request sent! We\'ll confirm via text shortly.', 'success');
             this.reset();
+            setTimeout(() => switchTab('gallery'), 1500);
             
         } catch (error) {
-            showToast('✗ Error sending request. Please try again or text us directly.', 'error');
+            showToast('✗ Error sending request. Please text or call us directly.', 'error');
         } finally {
             submitBtn.disabled = false;
             btnText.textContent = originalText;
@@ -908,11 +1068,9 @@
         const review = {
             name: document.getElementById('reviewName').value,
             rating: document.getElementById('rating').value,
-            text: document.getElementById('reviewText').value,
-            date: new Date().toLocaleDateString()
+            text: document.getElementById('reviewText').value
         };
 
-        // Add review to list (client-side for demo)
         const reviewsList = document.getElementById('reviewsList');
         const stars = '★'.repeat(review.rating) + '☆'.repeat(5 - review.rating);
         
@@ -946,7 +1104,7 @@
         }, 3000);
     }
 
-    // Utility: Escape HTML to prevent XSS
+    // Escape HTML
     function escapeHtml(text) {
         const map = {
             '&': '&amp;',
@@ -958,7 +1116,7 @@
         return text.replace(/[&<>"']/g, m => map[m]);
     }
 
-    // Close modal when clicking outside
+    // Close modal on outside click
     document.getElementById('reviewModal').addEventListener('click', function(e) {
         if (e.target === this) closeReviewModal();
     });
