@@ -130,6 +130,20 @@
             margin-bottom: 14px;
         }
 
+        .discount-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #ff6b6b, #ff8787);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 700;
+            margin-bottom: 14px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 4px 12px rgba(255, 107, 107, 0.3);
+        }
+
         /* ======== TABS ======== */
         .tabs {
             display: flex;
@@ -752,8 +766,9 @@
 
     <!-- Hero CTA -->
     <div class="hero-cta">
+        <div class="discount-badge">🔥 10% OFF TODAY - TEXT TO BOOK! 🔥</div>
         <h2>🌞 SUMMER DEALS ARE HERE!</h2>
-        <p>Limited-time pricing on our premium detailing packages. Schedule your appointment now.</p>
+        <p>Limited-time pricing on our premium detailing packages. Text us now to schedule and get your discount!</p>
         <button class="btn btn-primary" onclick="switchTab('book')">Book Your Detail</button>
     </div>
 
@@ -869,7 +884,7 @@
         </div>
 
         <p style="font-size: 11px; color: var(--text-secondary); text-align: center; margin-top: 22px;">
-            ✓ All packages local service • ✓ No hidden fees • ✓ 100% satisfaction guaranteed • 🎯 Early Summer Deals
+            ✓ All packages local service • ✓ No hidden fees • ✓ 100% satisfaction guaranteed • 🎯 Early Summer Deals • 💰 10% OFF TODAY
         </p>
     </div>
 
@@ -914,7 +929,7 @@
     <!-- Book Tab -->
     <div class="tab-content" id="book">
         <div class="booking-form">
-            <h2>📅 Schedule Your Detail</h2>
+            <h2>📱 Book Via Text - Get 10% Off!</h2>
             
             <form id="bookingForm">
                 <div class="form-group">
@@ -923,8 +938,8 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="phone">Phone Number *</label>
-                    <input type="tel" id="phone" name="phone" placeholder="(123) 456-7890" required>
+                    <label for="phone">Your Phone Number *</label>
+                    <input type="tel" id="phone" name="phone" placeholder="(717) 555-1234" required>
                 </div>
 
                 <div class="form-group">
@@ -958,17 +973,17 @@
                 </div>
 
                 <button type="submit" class="btn btn-primary" id="submitBtn">
-                    <span id="btnText">Request Appointment</span>
+                    <span id="btnText">Send Booking Via Text</span>
                 </button>
             </form>
         </div>
 
         <div class="contact-cta">
-            <p>📱 Prefer to text? We respond fast!</p>
-            <div class="contact-number">+1 (123) 456-7890</div>
+            <p>📱 Or text us directly at:</p>
+            <div class="contact-number">717-678-1772</div>
             <p style="font-size: 11px; margin-top: 8px;">
-                <span class="contact-method"><a href="sms:+11234567890">Text Us</a></span>
-                <span class="contact-method"><a href="tel:+11234567890">Call Now</a></span>
+                <span class="contact-method"><a href="sms:7176781772">Text Us Now</a></span>
+                <span class="contact-method"><a href="tel:7176781772">Call Us</a></span>
             </p>
         </div>
     </div>
@@ -1015,6 +1030,8 @@
 </div>
 
 <script>
+    const BUSINESS_PHONE = '7176781772';
+    
     // Tab Switching
     function switchTab(tabName) {
         document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
@@ -1033,18 +1050,37 @@
         document.getElementById('reviewModal').classList.remove('active');
     }
 
-    // Form Submission
+    // Booking Form Submission - Sends to Text
     document.getElementById('bookingForm').addEventListener('submit', function(e) {
         e.preventDefault();
+        
         const name = document.getElementById('name').value;
         const phone = document.getElementById('phone').value;
-        const package = document.getElementById('package').value;
+        const packageSelected = document.getElementById('package').value;
         const date = document.getElementById('date').value;
         const time = document.getElementById('time').value;
         const location = document.getElementById('location').value;
-        
-        console.log('Booking:', { name, phone, package, date, time, location });
-        showToast(`Appointment requested! We'll contact you at ${phone}`, 'success');
+        const notes = document.getElementById('notes').value;
+
+        // Package name mapping
+        const packageNames = {
+            'interior': 'Interior Express - $99',
+            'summer': 'The Summer Standard - $149.99',
+            'premium': 'Premium Restoration - $199.99'
+        };
+
+        // Create message
+        const messageText = `Hi Matt! I'd like to book a detail appointment. 🚗\n\n📝 Name: ${name}\n☎️ Phone: ${phone}\n💼 Package: ${packageNames[packageSelected]}\n📅 Date: ${date}\n⏰ Time: ${time}\n📍 Address: ${location}${notes ? `\n💬 Notes: ${notes}` : ''}\n\n10% OFF TODAY! 🔥`;
+
+        // Encode for SMS
+        const encodedMessage = encodeURIComponent(messageText);
+        const smsLink = `sms:${BUSINESS_PHONE}?body=${encodedMessage}`;
+
+        // Open SMS
+        window.location.href = smsLink;
+
+        // Show confirmation
+        showToast(`Booking sent to ${BUSINESS_PHONE}! We'll confirm via text.`, 'success');
         document.getElementById('bookingForm').reset();
     });
 
