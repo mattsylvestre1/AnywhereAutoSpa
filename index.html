@@ -216,67 +216,34 @@
             letter-spacing: 1px;
         }
 
-        .gallery-grid {
+        /* Updated Gallery for Full-Height Vertical Images */
+        .transformation-showcase {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 14px;
-            margin-bottom: 22px;
-        }
-
-        .gallery-pair {
+            gap: 28px;
             margin-bottom: 28px;
         }
 
-        .gallery-pair-title {
-            font-size: 11px;
-            color: var(--text-secondary);
-            text-align: center;
-            margin-bottom: 10px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            font-weight: 600;
-        }
-
-        .gallery-item {
-            position: relative;
-            border-radius: 12px;
-            overflow: hidden;
+        .transformation-image-container {
             background: var(--card);
-            aspect-ratio: 1;
-            cursor: pointer;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+            overflow: hidden;
+            box-shadow: 0 8px 24px rgba(201, 169, 97, 0.15);
             transition: all 0.3s ease;
-            border: 2px solid var(--border);
         }
 
-        .gallery-item:hover {
-            transform: scale(1.05);
+        .transformation-image-container:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 32px rgba(201, 169, 97, 0.25);
             border-color: var(--gold);
-            box-shadow: 0 10px 28px rgba(201, 169, 97, 0.25);
         }
 
-        .gallery-item img {
+        .transformation-image-container img {
             width: 100%;
-            height: 100%;
-            object-fit: cover;
+            height: auto;
+            display: block;
+            max-width: 100%;
         }
-
-        .gallery-badge {
-            position: absolute;
-            bottom: 12px;
-            left: 12px;
-            background: rgba(0, 0, 0, 0.85);
-            backdrop-filter: blur(8px);
-            padding: 6px 12px;
-            font-size: 11px;
-            font-weight: 700;
-            border-radius: 6px;
-            letter-spacing: 0.5px;
-            text-transform: uppercase;
-            border: 1px solid rgba(201, 169, 97, 0.3);
-        }
-
-        .gallery-badge.before { color: #ff6b6b; }
-        .gallery-badge.after { color: var(--success); }
 
         /* ======== PRICING ======== */
         .pricing-grid {
@@ -580,7 +547,6 @@
             header h1 { font-size: 16px; }
             .package-header { flex-direction: column; }
             .price { margin-top: 6px; }
-            .gallery-grid { gap: 10px; }
             .trust-badges { gap: 8px; }
         }
     </style>
@@ -627,31 +593,12 @@
     <div class="tab-content active" id="gallery">
         <div class="gallery-title">✨ Real Before & After Work</div>
         
-        <div class="gallery-pair">
-            <div class="gallery-pair-title">Interior Deep Clean</div>
-            <div class="gallery-grid">
-                <div class="gallery-item">
-                    <img src="before1.jpg" alt="Car interior before detailing">
-                    <div class="gallery-badge before">Before</div>
-                </div>
-                <div class="gallery-item">
-                    <img src="after1.jpg" alt="Car interior after detailing">
-                    <div class="gallery-badge after">After</div>
-                </div>
+        <div class="transformation-showcase">
+            <div class="transformation-image-container">
+                <img src="transformation-1.png" alt="Interior Deep Clean - Before and After Transformation">
             </div>
-        </div>
-
-        <div class="gallery-pair">
-            <div class="gallery-pair-title">Full Exterior & Interior Restoration</div>
-            <div class="gallery-grid">
-                <div class="gallery-item">
-                    <img src="before2.jpg" alt="Car exterior before detailing">
-                    <div class="gallery-badge before">Before</div>
-                </div>
-                <div class="gallery-item">
-                    <img src="after2.jpg" alt="Car exterior after detailing">
-                    <div class="gallery-badge after">After</div>
-                </div>
+            <div class="transformation-image-container">
+                <img src="transformation-2.png" alt="Full Exterior & Interior Restoration - Before and After Transformation">
             </div>
         </div>
 
