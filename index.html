@@ -1,848 +1,848 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Anywhere Auto Spa - Premium mobile car detailing delivered to your door. Before/after transformations guaranteed. Book now!">
-    <meta name="theme-color" content="#c9a961">
-    <title>Anywhere Auto Spa - Premium Mobile Car Detailing</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        :root {
-            --gold: #c9a961;
-            --gold-dark: #a68543;
-            --dark: #0a0e27;
-            --darker: #050812;
-            --card: #1a1f3a;
-            --border: #2a3050;
-            --text: #ffffff;
-            --text-secondary: #b0b8d4;
-            --accent: #00bcd4;
-            --success: #4caf50;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            background: linear-gradient(135deg, var(--darker) 0%, #0f1436 100%);
-            color: var(--text);
-            line-height: 1.6;
-            min-height: 100vh;
-        }
-
-        .container {
-            max-width: 600px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-
-        /* ======== HEADER & HERO ======== */
-        header {
-            text-align: center;
-            padding: 25px 20px 35px;
-            background: linear-gradient(180deg, rgba(201, 169, 97, 0.15) 0%, transparent 100%);
-            border-bottom: 2px solid var(--gold);
-            margin-bottom: 0;
-            border-radius: 0 0 16px 16px;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            backdrop-filter: blur(10px);
-            background-color: rgba(10, 14, 39, 0.95);
-        }
-
-        .logo-container {
-            margin-bottom: 12px;
-        }
-
-        .logo-img {
-            max-width: 160px;
-            height: auto;
-            filter: drop-shadow(0 4px 12px rgba(201, 169, 97, 0.3));
-        }
-
-        header h1 {
-            font-size: 18px;
-            color: var(--gold);
-            margin-bottom: 6px;
-            font-weight: 700;
-            letter-spacing: 1px;
-        }
-
-        .subtitle {
-            color: var(--text-secondary);
-            font-size: 13px;
-            margin: 0;
-            line-height: 1.5;
-        }
-
-        /* ======== TRUST BADGES ======== */
-        .trust-badges {
-            display: flex;
-            justify-content: center;
-            gap: 12px;
-            margin-top: 12px;
-            flex-wrap: wrap;
-            padding-top: 12px;
-            border-top: 1px solid var(--border);
-        }
-
-        .badge {
-            display: flex;
-            align-items: center;
-            gap: 5px;
-            font-size: 11px;
-            color: var(--gold);
-            font-weight: 600;
-        }
-
-        .badge-icon {
-            font-size: 14px;
-        }
-
-        /* ======== HERO CTA ======== */
-        .hero-cta {
-            background: linear-gradient(135deg, rgba(201, 169, 97, 0.2) 0%, rgba(0, 188, 212, 0.1) 100%);
-            padding: 22px 20px;
-            border-radius: 12px;
-            border: 2px solid var(--gold);
-            margin-bottom: 30px;
-            text-align: center;
-        }
-
-        .hero-cta h2 {
-            font-size: 16px;
-            color: var(--gold);
-            margin-bottom: 10px;
-        }
-
-        .hero-cta p {
-            font-size: 12px;
-            color: var(--text-secondary);
-            margin-bottom: 14px;
-        }
-
-        .discount-badge {
-            display: inline-block;
-            background: linear-gradient(135deg, #ff6b6b, #ff8787);
-            color: white;
-            padding: 8px 16px;
-            border-radius: 20px;
-            font-size: 13px;
-            font-weight: 700;
-            margin-bottom: 14px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            box-shadow: 0 4px 12px rgba(255, 107, 107, 0.3);
-        }
-
-        /* ======== TABS ======== */
-        .tabs {
-            display: flex;
-            gap: 8px;
-            margin-bottom: 28px;
-            padding: 0 0 12px 0;
-            border-bottom: 2px solid var(--border);
-            overflow-x: auto;
-            scroll-behavior: smooth;
-        }
-
-        .tabs::-webkit-scrollbar {
-            height: 3px;
-        }
-
-        .tabs::-webkit-scrollbar-thumb {
-            background: var(--gold);
-            border-radius: 3px;
-        }
-
-        .tab-btn {
-            padding: 9px 16px;
-            border: none;
-            background: transparent;
-            color: var(--text-secondary);
-            font-size: 12px;
-            font-weight: 600;
-            cursor: pointer;
-            white-space: nowrap;
-            border-bottom: 3px solid transparent;
-            transition: all 0.3s ease;
-            position: relative;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        .tab-btn.active {
-            color: var(--gold);
-            border-bottom-color: var(--gold);
-        }
-
-        .tab-btn:hover:not(.active) {
-            color: var(--text);
-        }
-
-        .tab-content {
-            display: none;
-        }
-
-        .tab-content.active {
-            display: block;
-            animation: fadeIn 0.3s ease;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-
-        /* ======== GALLERY ======== */
-        .gallery-title {
-            font-size: 15px;
-            color: var(--gold);
-            margin-bottom: 18px;
-            font-weight: 700;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        /* Updated Gallery for Full-Height Vertical Images */
-        .transformation-showcase {
-            display: grid;
-            gap: 28px;
-            margin-bottom: 28px;
-        }
-
-        .transformation-image-container {
-            background: var(--card);
-            border-radius: 12px;
-            border: 1px solid var(--border);
-            overflow: hidden;
-            box-shadow: 0 8px 24px rgba(201, 169, 97, 0.15);
-            transition: all 0.3s ease;
-        }
-
-        .transformation-image-container:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 12px 32px rgba(201, 169, 97, 0.25);
-            border-color: var(--gold);
-        }
-
-        .transformation-image-container img {
-            width: 100%;
-            height: auto;
-            display: block;
-            max-width: 100%;
-        }
-
-        /* ======== PRICING ======== */
-        .pricing-grid {
-            display: grid;
-            gap: 16px;
-            margin-bottom: 28px;
-        }
-
-        .package {
-            background: var(--card);
-            padding: 20px;
-            border-radius: 12px;
-            transition: all 0.3s ease;
-            cursor: pointer;
-            position: relative;
-            border: 1px solid var(--border);
-            border-left: 4px solid var(--gold);
-        }
-
-        .package:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 12px 32px rgba(201, 169, 97, 0.2);
-            border-color: var(--gold);
-        }
-
-        .package.popular {
-            background: linear-gradient(135deg, rgba(201, 169, 97, 0.15) 0%, rgba(0, 188, 212, 0.08) 100%);
-            border: 2px solid var(--gold);
-            border-left: 4px solid var(--gold);
-        }
-
-        .badge-popular {
-            position: absolute;
-            top: -12px;
-            right: 15px;
-            background: var(--gold);
-            color: #000;
-            padding: 5px 14px;
-            border-radius: 20px;
-            font-size: 10px;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            box-shadow: 0 4px 12px rgba(201, 169, 97, 0.3);
-        }
-
-        .package-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: start;
-            margin-bottom: 12px;
-            gap: 10px;
-        }
-
-        .package strong {
-            font-size: 15px;
-            color: var(--text);
-            flex: 1;
-        }
-
-        .price {
-            font-weight: 700;
-            font-size: 18px;
-            color: var(--gold);
-            white-space: nowrap;
-        }
-
-        .package p {
-            font-size: 12px;
-            color: var(--text-secondary);
-            line-height: 1.6;
-            margin-bottom: 10px;
-        }
-
-        .package-features {
-            font-size: 11px;
-            color: var(--gold);
-            margin-top: 8px;
-            list-style-type: none;
-        }
-
-        .package-features li {
-            margin-top: 4px;
-            position: relative;
-            padding-left: 15px;
-        }
-        
-        .package-features li::before {
-            content: "✓";
-            position: absolute;
-            left: 0;
-            color: var(--gold);
-        }
-
-        .upcharge-menu {
-            background: rgba(0, 0, 0, 0.3);
-            padding: 16px;
-            border-radius: 8px;
-            margin-top: 18px;
-            border-left: 3px solid #ff6b6b;
-        }
-
-        .upcharge-title {
-            font-size: 10px;
-            color: #ff6b6b;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 8px;
-        }
-
-        .upcharge-item {
-            font-size: 11px;
-            color: var(--text-secondary);
-            margin: 5px 0;
-        }
-
-        /* ======== REVIEWS ======== */
-        .reviews-list {
-            display: grid;
-            gap: 16px;
-        }
-
-        .review-card {
-            background: var(--card);
-            padding: 18px;
-            border-radius: 12px;
-            transition: all 0.3s ease;
-            border: 1px solid var(--border);
-            border-left: 4px solid var(--gold);
-        }
-
-        .review-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: start;
-            margin-bottom: 10px;
-        }
-
-        .reviewer-name {
-            font-weight: 700;
-            color: var(--text);
-            font-size: 13px;
-        }
-
-        .review-rating {
-            color: var(--gold);
-            font-size: 13px;
-            letter-spacing: 2px;
-        }
-
-        .review-text {
-            font-size: 12px;
-            color: var(--text-secondary);
-            line-height: 1.6;
-            font-style: italic;
-        }
-
-        .review-date {
-            font-size: 10px;
-            color: rgba(176, 184, 212, 0.5);
-            margin-top: 8px;
-        }
-
-        /* ======== BOOKING FORM ======== */
-        .booking-form {
-            background: var(--card);
-            padding: 22px;
-            border-radius: 12px;
-            margin-bottom: 18px;
-            border: 1px solid var(--border);
-        }
-
-        .booking-form h2 {
-            font-size: 16px;
-            color: var(--gold);
-            margin-bottom: 18px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .form-group {
-            margin-bottom: 18px;
-        }
-
-        .form-group label {
-            display: block;
-            font-size: 11px;
-            font-weight: 700;
-            margin-bottom: 7px;
-            color: var(--gold);
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        .form-group input,
-        .form-group select,
-        .form-group textarea {
-            width: 100%;
-            padding: 12px;
-            border: 1px solid var(--border);
-            background: rgba(0, 0, 0, 0.4);
-            color: var(--text);
-            border-radius: 8px;
-            font-family: inherit;
-            font-size: 13px;
-            transition: all 0.3s ease;
-        }
-
-        .form-group input:focus,
-        .form-group select:focus,
-        .form-group textarea:focus {
-            outline: none;
-            border-color: var(--gold);
-            background: rgba(201, 169, 97, 0.08);
-        }
-
-        .form-group textarea {
-            resize: vertical;
-            min-height: 75px;
-        }
-
-        /* ======== BUTTONS ======== */
-        .btn {
-            display: block;
-            width: 100%;
-            padding: 14px;
-            border: none;
-            border-radius: 8px;
-            font-size: 14px;
-            font-weight: 700;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-decoration: none;
-            text-align: center;
-            letter-spacing: 1px;
-            margin-top: 18px;
-            text-transform: uppercase;
-        }
-
-        .btn-primary {
-            background: linear-gradient(135deg, var(--gold), var(--gold-dark));
-            color: #000;
-            box-shadow: 0 6px 20px rgba(201, 169, 97, 0.4);
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 28px rgba(201, 169, 97, 0.5);
-        }
-
-        /* ======== CONTACT CTA ======== */
-        .contact-cta {
-            background: linear-gradient(135deg, rgba(201, 169, 97, 0.15) 0%, rgba(0, 188, 212, 0.1) 100%);
-            padding: 18px;
-            border-radius: 12px;
-            margin-bottom: 18px;
-            border-left: 4px solid var(--gold);
-        }
-
-        .contact-cta p {
-            margin-bottom: 10px;
-            font-size: 12px;
-            color: var(--text-secondary);
-        }
-
-        .contact-number {
-            font-size: 16px;
-            font-weight: 700;
-            color: var(--gold);
-            margin: 6px 0;
-        }
-
-        .contact-method {
-            display: inline-block;
-            margin: 0 8px;
-            font-size: 11px;
-        }
-
-        .contact-method a {
-            color: var(--accent);
-            text-decoration: none;
-            font-weight: 600;
-        }
-
-        /* ======== FOOTER ======== */
-        footer {
-            text-align: center;
-            padding: 30px 20px;
-            color: var(--text-secondary);
-            font-size: 11px;
-            border-top: 1px solid var(--border);
-            margin-top: 45px;
-        }
-
-        /* ======== RESPONSIVE ======== */
-        @media (max-width: 480px) {
-            .container { padding: 12px; }
-            header { padding: 20px 12px 25px; }
-            .logo-img { max-width: 130px; }
-            header h1 { font-size: 16px; }
-            .package-header { flex-direction: column; }
-            .price { margin-top: 6px; }
-            .trust-badges { gap: 8px; }
-        }
-    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Anywhere Auto Spa - Premium mobile car detailing delivered to your door. Before/after transformations guaranteed. Book now!">
+    <meta name="theme-color" content="#c9a961">
+    <title>Anywhere Auto Spa - Premium Mobile Car Detailing</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --gold: #c9a961;
+            --gold-dark: #a68543;
+            --dark: #0a0e27;
+            --darker: #050812;
+            --card: #1a1f3a;
+            --border: #2a3050;
+            --text: #ffffff;
+            --text-secondary: #b0b8d4;
+            --accent: #00bcd4;
+            --success: #4caf50;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: linear-gradient(135deg, var(--darker) 0%, #0f1436 100%);
+            color: var(--text);
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* ======== HEADER & HERO ======== */
+        header {
+            text-align: center;
+            padding: 25px 20px 35px;
+            background: linear-gradient(180deg, rgba(201, 169, 97, 0.15) 0%, transparent 100%);
+            border-bottom: 2px solid var(--gold);
+            margin-bottom: 0;
+            border-radius: 0 0 16px 16px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(10px);
+            background-color: rgba(10, 14, 39, 0.95);
+        }
+
+        .logo-container {
+            margin-bottom: 12px;
+        }
+
+        .logo-img {
+            max-width: 160px;
+            height: auto;
+            filter: drop-shadow(0 4px 12px rgba(201, 169, 97, 0.3));
+        }
+
+        header h1 {
+            font-size: 18px;
+            color: var(--gold);
+            margin-bottom: 6px;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        .subtitle {
+            color: var(--text-secondary);
+            font-size: 13px;
+            margin: 0;
+            line-height: 1.5;
+        }
+
+        /* ======== TRUST BADGES ======== */
+        .trust-badges {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin-top: 12px;
+            flex-wrap: wrap;
+            padding-top: 12px;
+            border-top: 1px solid var(--border);
+        }
+
+        .badge {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            font-size: 11px;
+            color: var(--gold);
+            font-weight: 600;
+        }
+
+        .badge-icon {
+            font-size: 14px;
+        }
+
+        /* ======== HERO CTA ======== */
+        .hero-cta {
+            background: linear-gradient(135deg, rgba(201, 169, 97, 0.2) 0%, rgba(0, 188, 212, 0.1) 100%);
+            padding: 22px 20px;
+            border-radius: 12px;
+            border: 2px solid var(--gold);
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .hero-cta h2 {
+            font-size: 16px;
+            color: var(--gold);
+            margin-bottom: 10px;
+        }
+
+        .hero-cta p {
+            font-size: 12px;
+            color: var(--text-secondary);
+            margin-bottom: 14px;
+        }
+
+        .discount-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #ff6b6b, #ff8787);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 700;
+            margin-bottom: 14px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 4px 12px rgba(255, 107, 107, 0.3);
+        }
+
+        /* ======== TABS ======== */
+        .tabs {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 28px;
+            padding: 0 0 12px 0;
+            border-bottom: 2px solid var(--border);
+            overflow-x: auto;
+            scroll-behavior: smooth;
+        }
+
+        .tabs::-webkit-scrollbar {
+            height: 3px;
+        }
+
+        .tabs::-webkit-scrollbar-thumb {
+            background: var(--gold);
+            border-radius: 3px;
+        }
+
+        .tab-btn {
+            padding: 9px 16px;
+            border: none;
+            background: transparent;
+            color: var(--text-secondary);
+            font-size: 12px;
+            font-weight: 600;
+            cursor: pointer;
+            white-space: nowrap;
+            border-bottom: 3px solid transparent;
+            transition: all 0.3s ease;
+            position: relative;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .tab-btn.active {
+            color: var(--gold);
+            border-bottom-color: var(--gold);
+        }
+
+        .tab-btn:hover:not(.active) {
+            color: var(--text);
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+            animation: fadeIn 0.3s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        /* ======== GALLERY ======== */
+        .gallery-title {
+            font-size: 15px;
+            color: var(--gold);
+            margin-bottom: 18px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Updated Gallery for Full-Height Vertical Images */
+        .transformation-showcase {
+            display: grid;
+            gap: 28px;
+            margin-bottom: 28px;
+        }
+
+        .transformation-image-container {
+            background: var(--card);
+            border-radius: 12px;
+            border: 1px solid var(--border);
+            overflow: hidden;
+            box-shadow: 0 8px 24px rgba(201, 169, 97, 0.15);
+            transition: all 0.3s ease;
+        }
+
+        .transformation-image-container:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 32px rgba(201, 169, 97, 0.25);
+            border-color: var(--gold);
+        }
+
+        .transformation-image-container img {
+            width: 100%;
+            height: auto;
+            display: block;
+            max-width: 100%;
+        }
+
+        /* ======== PRICING ======== */
+        .pricing-grid {
+            display: grid;
+            gap: 16px;
+            margin-bottom: 28px;
+        }
+
+        .package {
+            background: var(--card);
+            padding: 20px;
+            border-radius: 12px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
+            border: 1px solid var(--border);
+            border-left: 4px solid var(--gold);
+        }
+
+        .package:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 12px 32px rgba(201, 169, 97, 0.2);
+            border-color: var(--gold);
+        }
+
+        .package.popular {
+            background: linear-gradient(135deg, rgba(201, 169, 97, 0.15) 0%, rgba(0, 188, 212, 0.08) 100%);
+            border: 2px solid var(--gold);
+            border-left: 4px solid var(--gold);
+        }
+
+        .badge-popular {
+            position: absolute;
+            top: -12px;
+            right: 15px;
+            background: var(--gold);
+            color: #000;
+            padding: 5px 14px;
+            border-radius: 20px;
+            font-size: 10px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            box-shadow: 0 4px 12px rgba(201, 169, 97, 0.3);
+        }
+
+        .package-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            margin-bottom: 12px;
+            gap: 10px;
+        }
+
+        .package strong {
+            font-size: 15px;
+            color: var(--text);
+            flex: 1;
+        }
+
+        .price {
+            font-weight: 700;
+            font-size: 18px;
+            color: var(--gold);
+            white-space: nowrap;
+        }
+
+        .package p {
+            font-size: 12px;
+            color: var(--text-secondary);
+            line-height: 1.6;
+            margin-bottom: 10px;
+        }
+
+        .package-features {
+            font-size: 11px;
+            color: var(--gold);
+            margin-top: 8px;
+            list-style-type: none;
+        }
+
+        .package-features li {
+            margin-top: 4px;
+            position: relative;
+            padding-left: 15px;
+        }
+        
+        .package-features li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--gold);
+        }
+
+        .upcharge-menu {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 16px;
+            border-radius: 8px;
+            margin-top: 18px;
+            border-left: 3px solid #ff6b6b;
+        }
+
+        .upcharge-title {
+            font-size: 10px;
+            color: #ff6b6b;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+        }
+
+        .upcharge-item {
+            font-size: 11px;
+            color: var(--text-secondary);
+            margin: 5px 0;
+        }
+
+        /* ======== REVIEWS ======== */
+        .reviews-list {
+            display: grid;
+            gap: 16px;
+        }
+
+        .review-card {
+            background: var(--card);
+            padding: 18px;
+            border-radius: 12px;
+            transition: all 0.3s ease;
+            border: 1px solid var(--border);
+            border-left: 4px solid var(--gold);
+        }
+
+        .review-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            margin-bottom: 10px;
+        }
+
+        .reviewer-name {
+            font-weight: 700;
+            color: var(--text);
+            font-size: 13px;
+        }
+
+        .review-rating {
+            color: var(--gold);
+            font-size: 13px;
+            letter-spacing: 2px;
+        }
+
+        .review-text {
+            font-size: 12px;
+            color: var(--text-secondary);
+            line-height: 1.6;
+            font-style: italic;
+        }
+
+        .review-date {
+            font-size: 10px;
+            color: rgba(176, 184, 212, 0.5);
+            margin-top: 8px;
+        }
+
+        /* ======== BOOKING FORM ======== */
+        .booking-form {
+            background: var(--card);
+            padding: 22px;
+            border-radius: 12px;
+            margin-bottom: 18px;
+            border: 1px solid var(--border);
+        }
+
+        .booking-form h2 {
+            font-size: 16px;
+            color: var(--gold);
+            margin-bottom: 18px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .form-group {
+            margin-bottom: 18px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 11px;
+            font-weight: 700;
+            margin-bottom: 7px;
+            color: var(--gold);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid var(--border);
+            background: rgba(0, 0, 0, 0.4);
+            color: var(--text);
+            border-radius: 8px;
+            font-family: inherit;
+            font-size: 13px;
+            transition: all 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--gold);
+            background: rgba(201, 169, 97, 0.08);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 75px;
+        }
+
+        /* ======== BUTTONS ======== */
+        .btn {
+            display: block;
+            width: 100%;
+            padding: 14px;
+            border: none;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            text-align: center;
+            letter-spacing: 1px;
+            margin-top: 18px;
+            text-transform: uppercase;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+            color: #000;
+            box-shadow: 0 6px 20px rgba(201, 169, 97, 0.4);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 28px rgba(201, 169, 97, 0.5);
+        }
+
+        /* ======== CONTACT CTA ======== */
+        .contact-cta {
+            background: linear-gradient(135deg, rgba(201, 169, 97, 0.15) 0%, rgba(0, 188, 212, 0.1) 100%);
+            padding: 18px;
+            border-radius: 12px;
+            margin-bottom: 18px;
+            border-left: 4px solid var(--gold);
+        }
+
+        .contact-cta p {
+            margin-bottom: 10px;
+            font-size: 12px;
+            color: var(--text-secondary);
+        }
+
+        .contact-number {
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--gold);
+            margin: 6px 0;
+        }
+
+        .contact-method {
+            display: inline-block;
+            margin: 0 8px;
+            font-size: 11px;
+        }
+
+        .contact-method a {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        /* ======== FOOTER ======== */
+        footer {
+            text-align: center;
+            padding: 30px 20px;
+            color: var(--text-secondary);
+            font-size: 11px;
+            border-top: 1px solid var(--border);
+            margin-top: 45px;
+        }
+
+        /* ======== RESPONSIVE ======== */
+        @media (max-width: 480px) {
+            .container { padding: 12px; }
+            header { padding: 20px 12px 25px; }
+            .logo-img { max-width: 130px; }
+            header h1 { font-size: 16px; }
+            .package-header { flex-direction: column; }
+            .price { margin-top: 6px; }
+            .trust-badges { gap: 8px; }
+        }
+    </style>
 </head>
 <body>
 
 <div class="container">
-    <header>
-        <div class="logo-container">
-            <img src="logo.jpg" alt="Anywhere Auto Spa Logo" class="logo-img" id="logoImg">
-        </div>
-        <h1>Anywhere Auto Spa</h1>
-        <p class="subtitle">Premium Mobile Car Detailing Delivered to Your Door</p>
-        <div class="trust-badges">
-            <div class="badge">
-                <span class="badge-icon">✓</span>
-                <span>Local & Trusted</span>
-            </div>
-            <div class="badge">
-                <span class="badge-icon">🚗</span>
-                <span>We Come to You</span>
-            </div>
-            <div class="badge">
-                <span class="badge-icon">💯</span>
-                <span>Guaranteed</span>
-            </div>
-        </div>
-    </header>
+    <header>
+        <div class="logo-container">
+            <img src="logo.jpg" alt="Anywhere Auto Spa Logo" class="logo-img" id="logoImg">
+        </div>
+        <h1>Anywhere Auto Spa</h1>
+        <p class="subtitle">Premium Mobile Car Detailing Delivered to Your Door</p>
+        <div class="trust-badges">
+            <div class="badge">
+                <span class="badge-icon">✓</span>
+                <span>Local & Trusted</span>
+            </div>
+            <div class="badge">
+                <span class="badge-icon">🚗</span>
+                <span>We Come to You</span>
+            </div>
+            <div class="badge">
+                <span class="badge-icon">💯</span>
+                <span>Guaranteed</span>
+            </div>
+        </div>
+    </header>
 
-    <div class="hero-cta">
-        <div class="discount-badge">🔥 10% OFF TODAY - TEXT TO BOOK! 🔥</div>
-        <h2>🌞 SUMMER DEALS ARE HERE!</h2>
-        <p>Limited-time pricing on our premium detailing packages. Text us now to schedule and get your discount!</p>
-        <button class="btn btn-primary" onclick="switchTab('book')">Book Your Detail</button>
-    </div>
+    <div class="hero-cta">
+        <div class="discount-badge">🔥 10% OFF TODAY - TEXT TO BOOK! 🔥</div>
+        <h2>🌞 SUMMER DEALS ARE HERE!</h2>
+        <p>Limited-time pricing on our premium detailing packages. Text us now to schedule and get your discount!</p>
+        <button class="btn btn-primary" onclick="switchTab('book')">Book Your Detail</button>
+    </div>
 
-    <div class="tabs">
-        <button class="tab-btn active" data-tab="gallery">Gallery</button>
-        <button class="tab-btn" data-tab="pricing">Pricing</button>
-        <button class="tab-btn" data-tab="reviews">Reviews</button>
-        <button class="tab-btn" data-tab="book">Book Now</button>
-    </div>
+    <div class="tabs">
+        <button class="tab-btn active" data-tab="gallery">Gallery</button>
+        <button class="tab-btn" data-tab="pricing">Pricing</button>
+        <button class="tab-btn" data-tab="reviews">Reviews</button>
+        <button class="tab-btn" data-tab="book">Book Now</button>
+    </div>
 
-    <div class="tab-content active" id="gallery">
-        <div class="gallery-title">✨ Real Before & After Work</div>
-        
-        <div class="transformation-showcase">
-            <div class="transformation-image-container">
-                <img src="transformation-1.png" alt="Interior Deep Clean - Before and After Transformation">
-            </div>
-            <div class="transformation-image-container">
-                <img src="transformation-2.png" alt="Full Exterior & Interior Restoration - Before and After Transformation">
-            </div>
-        </div>
+    <div class="tab-content active" id="gallery">
+        <div class="gallery-title">✨ Real Before & After Work</div>
+        
+        <div class="transformation-showcase">
+            <div class="transformation-image-container">
+                <img src="transformation-1.png" alt="Interior Deep Clean - Before and After Transformation">
+            </div>
+            <div class="transformation-image-container">
+                <img src="transformation-2.png" alt="Full Exterior & Interior Restoration - Before and After Transformation">
+            </div>
+        </div>
 
-        <div class="contact-cta">
-            <p>💡 Your car can look like this too!</p>
-            <button class="btn btn-primary" onclick="switchTab('book')">Schedule Now</button>
-        </div>
-    </div>
+        <div class="contact-cta">
+            <p>💡 Your car can look like this too!</p>
+            <button class="btn btn-primary" onclick="switchTab('book')">Schedule Now</button>
+        </div>
+    </div>
 
-    <div class="tab-content" id="pricing">
-        <div class="gallery-title">💰 SUMMER PRICING - 3 TIERS</div>
-        
-        <div class="pricing-grid">
-            <div class="package popular" onclick="selectPackage('interior')">
-                <div class="badge-popular">BEST VALUE</div>
-                <div class="package-header">
-                    <strong>Interior Express</strong>
-                    <div class="price">$149</div>
-                </div>
-                <p>The essential deep clean for the inside of your ride.</p>
-                <ul class="package-features">
-                    <li>Full blowout & deep vacuum</li>
-                    <li>Thorough surface wipe-down</li>
-                    <li>Cup holders & console cleaning</li>
-                    <li>Interior window cleaning</li>
-                    <li>Light carpet/mat shampoo</li>
-                </ul>
-            </div>
+    <div class="tab-content" id="pricing">
+        <div class="gallery-title">💰 SUMMER PRICING - 3 TIERS</div>
+        
+        <div class="pricing-grid">
+            <div class="package popular" onclick="selectPackage('interior')">
+                <div class="badge-popular">BEST VALUE</div>
+                <div class="package-header">
+                    <strong>Interior Express</strong>
+                    <div class="price">$99</div>
+                </div>
+                <p>The essential deep clean for the inside of your ride.</p>
+                <ul class="package-features">
+                    <li>Full blowout & deep vacuum</li>
+                    <li>Thorough surface wipe-down</li>
+                    <li>Cup holders & console cleaning</li>
+                    <li>Interior window cleaning</li>
+                    <li>Light carpet/mat shampoo</li>
+                </ul>
+            </div>
 
-            <div class="package" onclick="selectPackage('summer')">
-                <div class="package-header">
-                    <strong>The Summer Standard</strong>
-                    <div class="price">$199</div>
-                </div>
-                <p>Most popular: full-car deal covering interior & exterior.</p>
-                <ul class="package-features">
-                    <li>Premium hand wash & foam bath</li>
-                    <li>Wheel & tire shine</li>
-                    <li>Hand-applied premium gloss wax</li>
-                    <li>Everything in Interior Express package</li>
-                </ul>
-            </div>
+            <div class="package" onclick="selectPackage('summer')">
+                <div class="package-header">
+                    <strong>The Summer Standard</strong>
+                    <div class="price">$149.99</div>
+                </div>
+                <p>Most popular: full-car deal covering interior & exterior.</p>
+                <ul class="package-features">
+                    <li>Premium hand wash & foam bath</li>
+                    <li>Wheel & tire shine</li>
+                    <li>Hand-applied premium gloss wax</li>
+                    <li>Everything in Interior Express package</li>
+                </ul>
+            </div>
 
-            <div class="package" onclick="selectPackage('premium')">
-                <div class="package-header">
-                    <strong>Premium Restoration</strong>
-                    <div class="price">$250</div>
-                </div>
-                <p>Ultimate protection & transformation package. Everything in Summer Standard PLUS:</p>
-                <ul class="package-features">
-                    <li>Headlight Restoration Treatment</li>
-                    <li>Deep Carpet Shampoo extraction</li>
-                    <li>Interior Wax & Protectant Shine</li>
-                    <li><strong>🔥 BONUS (Pick Rain-X or Odor Bomb)</strong></li>
-                </ul>
-                <div class="upcharge-menu">
-                    <div class="upcharge-title">⚠️ Standalone Upcharge Rates:</div>
-                    <div class="upcharge-item">• Headlight Restoration: +$40–$60</div>
-                    <div class="upcharge-item">• Odor Bomb Treatment: +$30–$50</div>
-                    <div class="upcharge-item">• Rain-X Glass Treatment: +$20–$30</div>
-                    <div class="upcharge-item">• Interior Protectant Shine: +$20–$30</div>
-                    <div class="upcharge-item">• Heavy Pet Hair/Mud Fee: +$30–$50</div>
-                </div>
-            </div>
-        </div>
+            <div class="package" onclick="selectPackage('premium')">
+                <div class="package-header">
+                    <strong>Premium Restoration</strong>
+                    <div class="price">$199.99</div>
+                </div>
+                <p>Ultimate protection & transformation package. Everything in Summer Standard PLUS:</p>
+                <ul class="package-features">
+                    <li>Headlight Restoration Treatment</li>
+                    <li>Deep Carpet Shampoo extraction</li>
+                    <li>Interior Wax & Protectant Shine</li>
+                    <li><strong>🔥 BONUS (Pick Rain-X or Odor Bomb)</strong></li>
+                </ul>
+                <div class="upcharge-menu">
+                    <div class="upcharge-title">⚠️ Standalone Upcharge Rates:</div>
+                    <div class="upcharge-item">• Headlight Restoration: +$40–$60</div>
+                    <div class="upcharge-item">• Odor Bomb Treatment: +$30–$50</div>
+                    <div class="upcharge-item">• Rain-X Glass Treatment: +$20–$30</div>
+                    <div class="upcharge-item">• Interior Protectant Shine: +$20–$30</div>
+                    <div class="upcharge-item">• Heavy Pet Hair/Mud Fee: +$30–$50</div>
+                </div>
+            </div>
+        </div>
 
-        <p style="font-size: 11px; color: var(--text-secondary); text-align: center; margin-top: 22px;">
-            ✓ All packages local service • ✓ No hidden fees • ✓ 100% satisfaction guaranteed • 🎯 Early Summer Deals • 💰 10% OFF TODAY
-        </p>
-    </div>
+        <p style="font-size: 11px; color: var(--text-secondary); text-align: center; margin-top: 22px;">
+            ✓ All packages local service • ✓ No hidden fees • ✓ 100% satisfaction guaranteed • 🎯 Early Summer Deals • 💰 10% OFF TODAY
+        </p>
+    </div>
 
-    <div class="tab-content" id="reviews">
-        <div class="gallery-title">⭐ What Our Neighbors Say</div>
-        
-        <div class="reviews-list" id="reviewsList">
-            <div class="review-card">
-                <div class="review-header">
-                    <span class="reviewer-name">Troy Wile</span>
-                    <span class="review-rating">★★★★★</span>
-                </div>
-                <p class="review-text">"Matt did an incredible job! The attention to detail was amazing. My car looks brand new. Highly recommended!"</p>
-                <div class="review-date">1 week ago • Premium Detail</div>
-            </div>
+    <div class="tab-content" id="reviews">
+        <div class="gallery-title">⭐ What Our Neighbors Say</div>
+        
+        <div class="reviews-list" id="reviewsList">
+            <div class="review-card">
+                <div class="review-header">
+                    <span class="reviewer-name">Troy Wile</span>
+                    <span class="review-rating">★★★★★</span>
+                </div>
+                <p class="review-text">"Matt did an incredible job! The attention to detail was amazing. My car looks brand new. Highly recommended!"</p>
+                <div class="review-date">1 week ago • Premium Detail</div>
+            </div>
 
-            <div class="review-card">
-                <div class="review-header">
-                    <span class="reviewer-name">M.J Wile</span>
-                    <span class="review-rating">★★★★★</span>
-                </div>
-                <p class="review-text">"Professional, punctual, and thorough. Coming to my house made it so convenient. Worth every penny!"</p>
-                <div class="review-date">1 week ago • Premium Restoration</div>
-            </div>
+            <div class="review-card">
+                <div class="review-header">
+                    <span class="reviewer-name">M.J Wile</span>
+                    <span class="review-rating">★★★★★</span>
+                </div>
+                <p class="review-text">"Professional, punctual, and thorough. Coming to my house made it so convenient. Worth every penny!"</p>
+                <div class="review-date">1 week ago • Premium Restoration</div>
+            </div>
 
-            <div class="review-card">
-                <div class="review-header">
-                    <span class="reviewer-name">Emily T.</span>
-                    <span class="review-rating">★★★★★</span>
-                </div>
-                <p class="review-text">"Great service and fair pricing. My car's interior was a mess and now it feels brand new!"</p>
-                <div class="review-date">1 month ago • Summer Standard</div>
-            </div>
-        </div>
-    </div>
+            <div class="review-card">
+                <div class="review-header">
+                    <span class="reviewer-name">Emily T.</span>
+                    <span class="review-rating">★★★★★</span>
+                </div>
+                <p class="review-text">"Great service and fair pricing. My car's interior was a mess and now it feels brand new!"</p>
+                <div class="review-date">1 month ago • Summer Standard</div>
+            </div>
+        </div>
+    </div>
 
-    <div class="tab-content" id="book">
-        <div class="booking-form">
-            <h2>📱 Book Via Text - Get 10% Off!</h2>
-            
-            <form id="bookingForm" onsubmit="handleBookingSubmit(event)">
-                <div class="form-group">
-                    <label for="name">Your Name *</label>
-                    <input type="text" id="name" name="name" placeholder="John Doe" required>
-                </div>
+    <div class="tab-content" id="book">
+        <div class="booking-form">
+            <h2>📱 Book Via Text - Get 10% Off!</h2>
+            
+            <form id="bookingForm" onsubmit="handleBookingSubmit(event)">
+                <div class="form-group">
+                    <label for="name">Your Name *</label>
+                    <input type="text" id="name" name="name" placeholder="John Doe" required>
+                </div>
 
-                <div class="form-group">
-                    <label for="phone">Your Phone Number *</label>
-                    <input type="tel" id="phone" name="phone" placeholder="(717) 555-1234" required>
-                </div>
+                <div class="form-group">
+                    <label for="phone">Your Phone Number *</label>
+                    <input type="tel" id="phone" name="phone" placeholder="(717) 555-1234" required>
+                </div>
 
-                <div class="form-group">
-                    <label for="package">Service Package *</label>
-                    <select id="package" name="package" required>
-                        <option value="">Select a package...</option>
-                        <option value="Interior Express ($99)">Interior Express - $99</option>
-                        <option value="The Summer Standard ($149.99)">The Summer Standard - $149.99</option>
-                        <option value="Premium Restoration ($199.99)">Premium Restoration - $199.99</option>
-                    </select>
-                </div>
+                <div class="form-group">
+                    <label for="package">Service Package *</label>
+                    <select id="package" name="package" required>
+                        <option value="">Select a package...</option>
+                        <option value="Interior Express ($99)">Interior Express - $99</option>
+                        <option value="The Summer Standard ($149.99)">The Summer Standard - $149.99</option>
+                        <option value="Premium Restoration ($199.99)">Premium Restoration - $199.99</option>
+                    </select>
+                </div>
 
-                <div class="form-group">
-                    <label for="date">Preferred Date *</label>
-                    <input type="date" id="date" name="date" required>
-                </div>
+                <div class="form-group">
+                    <label for="date">Preferred Date *</label>
+                    <input type="date" id="date" name="date" required>
+                </div>
 
-                <div class="form-group">
-                    <label for="time">Preferred Time *</label>
-                    <select id="time" name="time" required>
-                        <option value="">Select a time...</option>
-                        <option value="9:00 AM">9:00 AM</option>
-                        <option value="10:00 AM">10:00 AM</option>
-                        <option value="11:00 AM">11:00 AM</option>
-                        <option value="12:00 PM">12:00 PM</option>
-                        <option value="1:00 PM">1:00 PM</option>
-                        <option value="2:00 PM">2:00 PM</option>
-                        <option value="3:00 PM">3:00 PM</option>
-                        <option value="4:00 PM">4:00 PM</option>
-                        <option value="5:00 PM">5:00 PM</option>
-                    </select>
-                </div>
+                <div class="form-group">
+                    <label for="time">Preferred Time *</label>
+                    <select id="time" name="time" required>
+                        <option value="">Select a time...</option>
+                        <option value="9:00 AM">9:00 AM</option>
+                        <option value="10:00 AM">10:00 AM</option>
+                        <option value="11:00 AM">11:00 AM</option>
+                        <option value="12:00 PM">12:00 PM</option>
+                        <option value="1:00 PM">1:00 PM</option>
+                        <option value="2:00 PM">2:00 PM</option>
+                        <option value="3:00 PM">3:00 PM</option>
+                        <option value="4:00 PM">4:00 PM</option>
+                        <option value="5:00 PM">5:00 PM</option>
+                    </select>
+                </div>
 
-                <div class="form-group">
-                    <label for="location">Service Address *</label>
-                    <input type="text" id="location" name="location" placeholder="123 Main St, Chambersburg" required>
-                </div>
+                <div class="form-group">
+                    <label for="location">Service Address *</label>
+                    <input type="text" id="location" name="location" placeholder="123 Main St, Chambersburg" required>
+                </div>
 
-                <div class="form-group">
-                    <label for="notes">Special Requests / Bonus Choice (Optional)</label>
-                    <textarea id="notes" name="notes" placeholder="Any specific vehicle concerns or package bonuses?"></textarea>
-                </div>
+                <div class="form-group">
+                    <label for="notes">Special Requests / Bonus Choice (Optional)</label>
+                    <textarea id="notes" name="notes" placeholder="Any specific vehicle concerns or package bonuses?"></textarea>
+                </div>
 
-                <button type="submit" class="btn btn-primary" id="submitBtn">
-                    <span id="btnText">Send Booking Via Text</span>
-                </button>
-            </form>
-        </div>
+                <button type="submit" class="btn btn-primary" id="submitBtn">
+                    <span id="btnText">Send Booking Via Text</span>
+                </button>
+            </form>
+        </div>
 
-        <div class="contact-cta">
-            <p>📱 Or text us directly at:</p>
-            <div class="contact-number">717-678-1772</div>
-            <p style="font-size: 11px; margin-top: 8px;">
-                <span class="contact-method"><a href="sms:+17176781772?body=Hi!%20I'm%20a%20neighbor%20interested%20in%20a%20detail!">Text Us Now</a></span>
-                <span class="contact-method"><a href="tel:+17176781772">Call Us</a></span>
-            </p>
-        </div>
-    </div>
+        <div class="contact-cta">
+            <p>📱 Or text us directly at:</p>
+            <div class="contact-number">717-678-1772</div>
+            <p style="font-size: 11px; margin-top: 8px;">
+                <span class="contact-method"><a href="sms:+17176781772?body=Hi!%20I'm%20a%20neighbor%20interested%20in%20a%20detail!">Text Us Now</a></span>
+                <span class="contact-method"><a href="tel:+17176781772">Call Us</a></span>
+            </p>
+        </div>
+    </div>
 
-    <footer>
-        <p>© 2026 Anywhere Auto Spa • Local service, premium quality</p>
-        <p style="margin-top: 8px;">🚗 Mobile service to your door • 💯 Guaranteed satisfaction • 💚 Student-owned</p>
-    </footer>
+    <footer>
+        <p>© 2026 Anywhere Auto Spa • Local service, premium quality</p>
+        <p style="margin-top: 8px;">🚗 Mobile service to your door • 💯 Guaranteed satisfaction • 💚 Student-owned</p>
+    </footer>
 </div>
 
 <script>
-    // Tab switching logic
-    const tabs = document.querySelectorAll('.tab-btn');
-    const contents = document.querySelectorAll('.tab-content');
+    // Tab switching logic
+    const tabs = document.querySelectorAll('.tab-btn');
+    const contents = document.querySelectorAll('.tab-content');
 
-    tabs.forEach(tab => {
-        tab.addEventListener('click', () => {
-            const target = tab.dataset.tab;
-            switchTab(target);
-        });
-    });
+    tabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+            const target = tab.dataset.tab;
+            switchTab(target);
+        });
+    });
 
-    function switchTab(tabId) {
-        tabs.forEach(t => t.classList.remove('active'));
-        contents.forEach(c => c.classList.remove('active'));
+    function switchTab(tabId) {
+        tabs.forEach(t => t.classList.remove('active'));
+        contents.forEach(c => c.classList.remove('active'));
 
-        const activeTab = document.querySelector(`.tab-btn[data-tab="${tabId}"]`);
-        const activeContent = document.getElementById(tabId);
+        const activeTab = document.querySelector(`.tab-btn[data-tab="${tabId}"]`);
+        const activeContent = document.getElementById(tabId);
 
-        if(activeTab) activeTab.classList.add('active');
-        if(activeContent) activeContent.classList.add('active');
-        
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
+        if(activeTab) activeTab.classList.add('active');
+        if(activeContent) activeContent.classList.add('active');
+        
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
 
-    function selectPackage(packageVal) {
-        switchTab('book');
-        const selectDrop = document.getElementById('package');
-        if(packageVal === 'interior') selectDrop.value = "Interior Express ($99)";
-        if(packageVal === 'summer') selectDrop.value = "The Summer Standard ($149.99)";
-        if(packageVal === 'premium') selectDrop.value = "Premium Restoration ($199.99)";
-    }
+    function selectPackage(packageVal) {
+        switchTab('book');
+        const selectDrop = document.getElementById('package');
+        if(packageVal === 'interior') selectDrop.value = "Interior Express ($99)";
+        if(packageVal === 'summer') selectDrop.value = "The Summer Standard ($149.99)";
+        if(packageVal === 'premium') selectDrop.value = "Premium Restoration ($199.99)";
+    }
 
-    // Direct Form-To-SMS processing pipeline
-    function handleBookingSubmit(e) {
-        e.preventDefault();
-        
-        const name = document.getElementById('name').value;
-        const phone = document.getElementById('phone').value;
-        const selectedPackage = document.getElementById('package').value;
-        const date = document.getElementById('date').value;
-        const time = document.getElementById('time').value;
-        const address = document.getElementById('location').value;
-        const notes = document.getElementById('notes').value;
+    // Direct Form-To-SMS processing pipeline
+    function handleBookingSubmit(e) {
+        e.preventDefault();
+        
+        const name = document.getElementById('name').value;
+        const phone = document.getElementById('phone').value;
+        const selectedPackage = document.getElementById('package').value;
+        const date = document.getElementById('date').value;
+        const time = document.getElementById('time').value;
+        const address = document.getElementById('location').value;
+        const notes = document.getElementById('notes').value;
 
-        // Build a beautifully readable SMS body text
-        let messageText = `Hi! I'm a neighbor wanting to book a detail:\n\n`;
-        messageText += `👤 Name: ${name}\n`;
-        messageText += `📞 Phone: ${phone}\n`;
-        messageText += `📦 Package: ${selectedPackage}\n`;
-        messageText += `📅 Date: ${date} at ${time}\n`;
-        messageText += `📍 Address: ${address}\n`;
-        if(notes) {
-            messageText += `📝 Notes/Bonus: ${notes}`;
-        }
+        // Build a beautifully readable SMS body text
+        let messageText = `Hi! I'm a neighbor wanting to book a detail:\n\n`;
+        messageText += `👤 Name: ${name}\n`;
+        messageText += `📞 Phone: ${phone}\n`;
+        messageText += `📦 Package: ${selectedPackage}\n`;
+        messageText += `📅 Date: ${date} at ${time}\n`;
+        messageText += `📍 Address: ${address}\n`;
+        if(notes) {
+            messageText += `📝 Notes/Bonus: ${notes}`;
+        }
 
-        // Format special characters for clean safe URL delivery
-        const encodedMessage = encodeURIComponent(messageText);
-        
-        // Launch native phone carrier SMS application
-        window.location.href = `sms:+17176781772?&body=${encodedMessage}`;
-    }
+        // Format special characters for clean safe URL delivery
+        const encodedMessage = encodeURIComponent(messageText);
+        
+        // Launch native phone carrier SMS application
+        window.location.href = `sms:+17176781772?&body=${encodedMessage}`;
+    }
 </script>
 </body>
 </html>
